@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={lora.className}>
+      <body className={lora.className }>
         {children}
         {/* <ThemeProvider
           attribute="class"
