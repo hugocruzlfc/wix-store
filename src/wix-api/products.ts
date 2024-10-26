@@ -42,8 +42,6 @@ export async function queryProducts({
 }
 
 export const getProductBySlug = cache(async (slug: string) => {
-  console.log("getProductBySlug");
-
   const wixClient = getWixClient();
 
   const { items } = await wixClient.products

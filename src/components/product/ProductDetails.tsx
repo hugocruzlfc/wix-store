@@ -70,7 +70,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
           {product.brand && (
             <div className="text-muted-foreground">{product.brand}</div>
           )}
-          {product.ribbon && <Badge className="block">{product.ribbon}</Badge>}
+          {product.ribbon && <Badge className="block w-24 text-center">{product.ribbon}</Badge>}
         </div>
         {product.description && (
           <div

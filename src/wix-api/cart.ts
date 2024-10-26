@@ -3,6 +3,7 @@ import { findVariant } from "@/lib/utils";
 import { getWixClient } from "@/lib/wix-client.base";
 import { products } from "@wix/stores";
 import {env} from "@/env"
+import { WIX_STORES_APP_ID } from "@/lib/constants";
 
 export async function getCart() {
   const wixClient = getWixClient();
@@ -38,7 +39,7 @@ export async function addToCart({
     lineItems: [
       {
         catalogReference: {
-          appId: env.NEXT_PUBLIC_WIX_SITE_ID,
+          appId: WIX_STORES_APP_ID,
           catalogItemId: product._id,
           options: selectedVariant
             ? {
