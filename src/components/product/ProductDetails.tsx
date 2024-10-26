@@ -15,6 +15,7 @@ import { InfoIcon } from "lucide-react";
 import { useState } from "react";
 
 import AddToCartButton from "../buttons/AddToCartButton";
+import BackInStockNotificationButton from "../buttons/BackInStockNotificationButton";
 import { Badge } from "../ui/badge";
 import ProductMedia from "./ProductMedia";
 import ProductOptions from "./ProductOptions";
@@ -113,7 +114,11 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
             className="w-full"
           />
         ) : (
-          "Out of stock"
+          <BackInStockNotificationButton
+            product={product}
+            selectedOptions={selectedOptions}
+            className="w-full"
+          />
         )}
         {!!product.additionalInfoSections?.length && (
           <div className="space-y-1.5 text-sm text-muted-foreground">
