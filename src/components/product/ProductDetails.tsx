@@ -1,6 +1,5 @@
 "use client";
 
-
 import {
   Accordion,
   AccordionContent,
@@ -15,11 +14,11 @@ import { products } from "@wix/stores";
 import { InfoIcon } from "lucide-react";
 import { useState } from "react";
 
-import ProductMedia from "./ProductMedia";
+import AddToCartButton from "../buttons/AddToCartButton";
 import { Badge } from "../ui/badge";
+import ProductMedia from "./ProductMedia";
 import ProductOptions from "./ProductOptions";
 import ProductPrice from "./ProductPrice";
-import AddToCartButton from "../AddToCartButton";
 
 interface ProductDetailsProps {
   product: products.Product;
@@ -70,7 +69,9 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
           {product.brand && (
             <div className="text-muted-foreground">{product.brand}</div>
           )}
-          {product.ribbon && <Badge className="block w-24 text-center">{product.ribbon}</Badge>}
+          {product.ribbon && (
+            <Badge className="block w-24 text-center">{product.ribbon}</Badge>
+          )}
         </div>
         {product.description && (
           <div
@@ -108,6 +109,8 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
             product={product}
             selectedOptions={selectedOptions}
             quantity={quantity}
+            disabled={availableQuantityExceeded || quantity < 1}
+            className="w-full"
           />
         ) : (
           "Out of stock"
