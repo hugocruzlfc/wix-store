@@ -13,9 +13,10 @@ export async function GET(req: NextRequest) {
   if (error) {
     return new Response(error_description, { status: 400 });
   }
+  const _cookies = await cookies();
 
   const oAuthData: OauthData = JSON.parse(
-    (await cookies()).get(WIX_OAUTH_DATA_COOKIE)?.value || "{}",
+    _cookies.get(WIX_OAUTH_DATA_COOKIE)?.value || "{}",
   );
 
   if (!code || !state || !oAuthData) {
@@ -24,10 +25,14 @@ export async function GET(req: NextRequest) {
 
   const wixClient = await getWixServerClient();
 
-  const memberTokens = wixClient.auth.getMemberTokens(code, state, oAuthData);
+  const memberTokens = await wixClient.auth.getMemberTokens(
+    code,
+    state,
+    oAuthData,
+  );
 
-  (await cookies()).delete(WIX_OAUTH_DATA_COOKIE);
-  (await cookies()).set(WIX_SESSION_COOKIE, JSON.stringify(memberTokens), {
+  _cookies.delete(WIX_OAUTH_DATA_COOKIE);
+  _cookies.set(WIX_SESSION_COOKIE, JSON.stringify(memberTokens), {
     maxAge: 60 * 60 * 24 * 14,
     secure: process.env.NODE_ENV === "production",
   });

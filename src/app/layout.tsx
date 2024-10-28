@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
-import { Lora } from "next/font/google";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 import Providers from "@/components/Providers";
 import { Toaster } from "@/components/ui/toaster";
+import type { Metadata } from "next";
+import { ThemeProvider } from "next-themes";
+import { Lora } from "next/font/google";
 import "./globals.css";
 
 const lora = Lora({ subsets: ["latin"] });
@@ -24,12 +25,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={lora.className}>
-      <Providers>
-        <Navbar />
-          {children}
-        <Footer />
-        </Providers>
-         <Toaster />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem={true}
+          disableTransitionOnChange
+        >
+          <Providers>
+            <Navbar />
+            {children}
+            <Footer />
+          </Providers>
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );

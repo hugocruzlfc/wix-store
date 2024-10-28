@@ -8,7 +8,8 @@ export const getWixServerClient = cache(async () => {
   let tokens: Tokens | undefined;
 
   try {
-    tokens = JSON.parse((await cookies()).get(WIX_SESSION_COOKIE)?.value || "{}");
+    const _cookies = await cookies();
+    tokens = JSON.parse(_cookies.get(WIX_SESSION_COOKIE)?.value || "{}");
   } catch (error) {}
 
   return getWixClient(tokens);
