@@ -33,7 +33,7 @@ export default function RootLayout({
         >
           <Providers>
             <Navbar />
-            {children}
+            <div className="min-h-[50vh]">{children}</div>
             <Footer />
           </Providers>
           <Toaster />
