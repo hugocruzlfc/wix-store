@@ -1,7 +1,6 @@
 import PaginationBar from "@/components/navigation/PaginationBar";
 import Product from "@/components/product/Product";
 import { Skeleton } from "@/components/ui/skeleton";
-import { delay } from "@/lib/utils";
 import { getWixServerClient } from "@/lib/wix-client.server";
 import { getCollectionBySlug } from "@/wix-api/collections";
 import { queryProducts } from "@/wix-api/products";
@@ -60,7 +59,7 @@ interface ProductsProps {
 }
 
 async function Products({ collectionId, page }: ProductsProps) {
-  await delay(2000);
+  // await delay(2000);
   const wixClient = await getWixServerClient();
 
   const pageSize = 8;

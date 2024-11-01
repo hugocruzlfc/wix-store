@@ -5,7 +5,6 @@ import ProductReviews, {
   ProductReviewsLoadingSkeleton,
 } from "@/components/product/ProductReviews";
 import { Skeleton } from "@/components/ui/skeleton";
-import { delay } from "@/lib/utils";
 import { getWixServerClient } from "@/lib/wix-client.server";
 import { getLoggedInMember } from "@/wix-api/members";
 import { getProductBySlug, getRelatedProducts } from "@/wix-api/products";
@@ -49,7 +48,7 @@ export async function generateMetadata({
 
 export default async function Page({ params }: PageProps) {
   const { slug } = await params;
-  await delay(3000);
+  // await delay(3000);
 
   const product = await getProductBySlug(await getWixServerClient(), slug);
 
@@ -78,7 +77,7 @@ interface RelatedProductsProps {
 }
 
 async function RelatedProducts({ productId }: RelatedProductsProps) {
-  await delay(2000);
+  // await delay(2000);
 
   const wixCLient = await getWixServerClient();
 
@@ -128,7 +127,7 @@ async function ProductReviewsSection({ product }: ProductReviewsSectionProps) {
       ).items[0]
     : null;
 
-  await delay(5000);
+  // await delay(5000);
 
   return (
     <div className="space-y-5">

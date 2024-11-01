@@ -35,6 +35,10 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
+## Wix Dashboard
 
+Very important: You need to have a Wix account to create a new site.
 
-2.41
+Create a new site on [Wix dashboard](https://manage.wix.com/).
+
+Autocomplete de variables in the `.env` file.
