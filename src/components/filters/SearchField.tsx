@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import { SearchIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { Input } from "./ui/input";
+import { Input } from "../ui/input";
 
 interface SearchFieldProps {
   className?: string;

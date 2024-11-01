@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ShoppingCartButton from "../buttons/ShopingCartButon";
 import UserButton from "../buttons/UserButton";
-import SearchField from "../SearchField";
+import SearchField from "../filters/SearchField";
 import NavMenu from "./NavMenu";
 
 export default async function Navbar() {
