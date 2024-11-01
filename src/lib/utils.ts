@@ -1,11 +1,14 @@
-import { clsx, type ClassValue } from "clsx"
 import { products } from "@wix/stores";
-import { twMerge } from "tailwind-merge"
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+import resolveConfig from "tailwindcss/resolveConfig";
+import tailwindConfig from "../../tailwind.config";
+
+export const twConfig = resolveConfig(tailwindConfig);
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }
-
 
 export async function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
