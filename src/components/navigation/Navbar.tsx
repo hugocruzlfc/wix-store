@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ShoppingCartButton from "../buttons/ShopingCartButon";
 import UserButton from "../buttons/UserButton";
+import SearchField from "../SearchField";
 import NavMenu from "./NavMenu";
 
 export default async function Navbar() {
@@ -28,7 +29,7 @@ export default async function Navbar() {
           </Link>
           <NavMenu collections={collections} />
         </div>
-
+        <SearchField className="max-w-96" />
         <div className="flex items-center justify-center gap-5">
           <UserButton loggedInMember={loggedInMember} />
           <ShoppingCartButton initialData={cart} />

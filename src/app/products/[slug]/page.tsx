@@ -6,7 +6,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 interface PageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateMetadata({
