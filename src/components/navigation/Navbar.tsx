@@ -32,7 +32,7 @@ export default async function Navbar() {
         </Suspense>
         <div className="flex flex-wrap items-center gap-5">
           <Link href="/" className="flex items-center gap-4">
-            <Image src={brand} alt="Flow Shop logo" width={150} height={50} />
+            <Image src={brand} alt="Shop logo" width={150} height={50} />
             {/* <span className="text-xl font-bold"></span> */}
           </Link>
           <NavMenu collections={collections} className="hidden lg:flex" />
